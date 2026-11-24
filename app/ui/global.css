@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Mystro Security Services — Global Styles ===== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* ---------- Navigation ---------- */
+  .nav-link {
+    @apply relative text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium tracking-wide;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-cyan-500 hover:bg-cyan-400
+           text-gray-950 font-semibold rounded-lg transition-all duration-200 shadow-lg
+           shadow-cyan-500/25 hover:shadow-cyan-400/40 text-sm tracking-wide;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-7 py-3.5 border-2 border-cyan-500
+           text-cyan-400 hover:bg-cyan-500 hover:text-gray-950 font-semibold rounded-lg
+           transition-all duration-200 text-sm tracking-wide;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-cyan-400 hover:text-white
+           hover:bg-white/5 rounded-lg transition-all duration-200 text-sm font-medium;
+  }
+
+  /* ---------- Section containers ---------- */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  /* ---------- Cards ---------- */
+  .service-card {
+    @apply relative bg-gray-900/60 border border-gray-800 rounded-2xl p-8
+           hover:border-cyan-500/50 hover:bg-gray-900/80 transition-all duration-300
+           cursor-default;
+  }
+
+  /* ---------- Gradient text ---------- */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500;
+  }
+
+  /* ---------- Glow effects ---------- */
+  .glow-line {
+    @apply h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent;
+  }
+
+  /* ---------- Stats ---------- */
+  .stat-block {
+    @apply text-center;
+  }
+  .stat-block .stat-number {
+    @apply text-4xl lg:text-5xl font-bold gradient-text;
+  }
+  .stat-block .stat-label {
+    @apply text-gray-400 text-sm mt-2;
+  }
+
+  /* ---------- Form inputs ---------- */
+  .form-input {
+    @apply w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100
+           placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50
+           focus:border-cyan-500 transition-all duration-200;
+  }
+  .form-textarea {
+    @apply w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100
+           placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50
+           focus:border-cyan-500 transition-all duration-200 resize-y;
+    min-height: 140px;
+  }
+}
+
+/* ---------- Animated background grid ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(6,182,212,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6,182,212,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ---------- Hero radial glow ---------- */
+.hero-glow {
+  background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(6,182,212,0.15), transparent);
+}
+
+/* ---------- Pulse animation for shield icon ---------- */
+@keyframes shield-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(6,182,212,0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(6,182,212,0); }
+}
+.shield-pulse {
+  animation: shield-pulse 3s ease-in-out infinite;
+}
+
+/* ---------- Fade in on load ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-600 { animation-delay: 0.6s; opacity: 0; }
